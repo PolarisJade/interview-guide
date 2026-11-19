@@ -1,0 +1,71 @@
+# ===================== Java / Maven =====================
+# 编译产物
+target/
+*.class
+
+ig-api/src/main/resources/application-dev.yaml
+
+# Maven 包装器（如已提交 mvnw 则保留，此处默认忽略本地下载的 wrapper jar）
+.mvn/wrapper/maven-wrapper.jar
+
+# ===================== IDE =====================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# ===================== 前端 / Node =====================
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+build/
+.vite/
+
+# 日志
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# ===================== 系统 / 编辑器 =====================
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ===================== 通用 =====================
+# 临时文件
+*.tmp
+*.swp
+*.bak
+
+# 测试覆盖率
+coverage/
+
+#自定义
+study/
