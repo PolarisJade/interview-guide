@@ -27,7 +27,7 @@ public class ResumeEntity {
 
     // 原始文件名
     @Column(nullable = false)
-    private String originalFileName;
+    private String originalFilename;
 
     // 文件大小（字节）
     private Long fileSize;
@@ -60,7 +60,7 @@ public class ResumeEntity {
     // 分析状态（新上传时为 PENDING，异步分析完成后变为 COMPLETED）
     @Enumerated(EnumType.STRING)    //枚举字段以字符串的形式存储在数据库中
     @Column(length = 20)
-    private AsyncTaskStatus analysisStatus = AsyncTaskStatus.PENDING;
+    private AsyncTaskStatus analyzeStatus = AsyncTaskStatus.PENDING;
 
     //最后一次有效进展事件（状态变化与心跳都推进）用于卡住任务回复判定
     @Column(name = "analyze_updated_at")

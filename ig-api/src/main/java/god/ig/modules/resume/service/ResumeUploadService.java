@@ -10,8 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.Map;
 
 /**
  * 简历上传服务
@@ -36,11 +34,16 @@ public class ResumeUploadService {
         long fileSize = file.getSize();
         String contentType = file.getContentType();
 
-        String fileHash = Arrays.toString(MessageDigest.getInstance("SHA-256").digest(file.getBytes()));
+        byte[] digest = MessageDigest.getInstance("SHA-256").digest(file.getBytes());
+        StringBuilder sb = new StringBuilder();
+        for (byte b : digest) {
+            sb.append(String.format("%02x", b));  // 每个字节转两位十六进制
+        }
+        String fileHash = sb.toString();
 
         ResumeEntity entity = new ResumeEntity();
         entity.setFileHash(fileHash);
-        entity.setOriginalFileName(originalFilename);
+        entity.setOriginalFilename(originalFilename);
         entity.setFileSize(fileSize);
         entity.setContentType(contentType);
 
